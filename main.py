@@ -31,9 +31,17 @@ except:
 
 draw.text((10, 283), myIp, inkR.BLACK, font)
 
+# Right column
 # Origin (208, 12) for right column
+feedTitle = rssData['feed']['title']
+draw.text((208, 12), feedTitle, inkR.BLACK, font)
+i = 32
+for post in rssData.entries:
+    # TODO: If time+1h > now THEN red ELSE black
+    draw.text((208, i,), entries[post]['title'], inkR.BLACK, font)
+    i = i + 12
 
-draw.text((208, 12), rssData['feed']['title'], inkR.BLACK, font)
+
 
 inkR.set_image(im)
 inkR.show()
