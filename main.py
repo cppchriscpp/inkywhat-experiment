@@ -40,26 +40,26 @@ draw.text((208, 12), feedTitle, inkR.BLACK, font)
 i = 32
 totalArticles = 0
 for post in rssData.entries:
-    splutTitle = post['title'].split(' ')
+    splutTitle = post['title'].split(' ').reverse()
     titleL1 = ''
     titleL2 = ''
     while len(splutTitle) > 0:
-        theWord = splutTitle.pop(0)
+        theWord = splutTitle.pop()
         before = titleL1
         titleL1 = titleL1 + ' ' + theWord
         w, h = titleFont.getsize(titleL1)
         if w > panelWidth:
-            splutTitle.append(0, theWord)
+            splutTitle.append(theWord)
             titleL1 = before
             break
     
     while len(splutTitle) > 0:
-        theWord = splutTitle.pop(0)
+        theWord = splutTitle.pop()
         before = titleL2
         titleL2 = titleL2 + ' ' + theWord
         w, h = titleFont.getsize(titleL2)
         if w > panelWidth:
-            splutTitle.insert(0, theWord)
+            splutTitle.append(theWord)
             titleL2 = before
             break
 
