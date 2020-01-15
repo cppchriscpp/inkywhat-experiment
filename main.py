@@ -40,7 +40,8 @@ draw.text((208, 12), feedTitle, inkR.BLACK, font)
 i = 32
 totalArticles = 0
 for post in rssData.entries:
-    splutTitle = post['title'].split(' ').reverse()
+    splutTitle = post['title'].split(' ')
+    splutTitle.reverse()
     titleL1 = ''
     titleL2 = ''
     while len(splutTitle) > 0:
