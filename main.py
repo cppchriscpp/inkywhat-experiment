@@ -46,7 +46,7 @@ for post in rssData.entries:
     while len(splutTitle) > 0:
         theWord = splutTitle.pop()
         before = titleL1
-        titleL1 = TitleL1.append(' '.join(theWord))
+        titleL1 = titleL1.append(' '.join(theWord))
         if titleFont.getSize(titleL1).length > panelWidth:
             splutTitle.push(theWord)
             titleL1 = before
@@ -55,7 +55,7 @@ for post in rssData.entries:
     while len(splutTitle) > 0:
         theWord = splutTitle.pop()
         before = titleL2
-        titleL2 = TitleL2.append(' '.join(theWord))
+        titleL2 = titleL2.append(' '.join(theWord))
         if titleFont.getSize(titleL1).length > panelWidth:
             splutTitle.push(theWord)
             titleL2 = before
