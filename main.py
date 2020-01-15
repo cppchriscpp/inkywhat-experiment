@@ -19,6 +19,7 @@ draw = ImageDraw.Draw(im)
 now = datetime.now()
 prettyTime = now.strftime('%a, %b %d %I:%M %p')
 font = ImageFont.load_default()
+titleFont = font
 draw.text((262, 283), prettyTime, inkR.BLACK, font)
 
 myIp = 'Unknown'
@@ -39,8 +40,32 @@ draw.text((208, 12), feedTitle, inkR.BLACK, font)
 i = 32
 totalArticles = 0
 for post in rssData.entries:
+    splutTitle = post['title']
+    titleL1 = ''
+    titleL2 = ''
+    while splutTitle.len > 0:
+        theWord = splutTitle.pop()
+        before = titleL1
+        titleL1 = TitleL1.append(' '.join(theWord))
+        if titleFont.getSize(titleL1).length > panelWidth:
+            splutTitle.push(theWord)
+            titleL1 = before
+            break
+    
+    while splutTitle.len > 0:
+        theWord = splutTitle.pop()
+        before = titleL2
+        titleL2 = TitleL2.append(' '.join(theWord))
+        if titleFont.getSize(titleL1).length > panelWidth:
+            splutTitle.push(theWord)
+            titleL2 = before
+            break
+
+
     # TODO: If time+1h > now THEN red ELSE black
-    draw.text((208, i), post['title'], inkR.BLACK, font)
+    draw.text((208, i), titleL1, inkR.BLACK, titleFont)
+    i = i + 10
+    draw.text((208, i), titleL2, inkR.BLACK, titleFont)
     i = i + 12
 
     totalArticles = totalArticles + 1
