@@ -6,7 +6,7 @@ import socket
 inkR = Ink('red')
 
 # im = Image.new('P', (inkR.WIDTH, inkR.HEIGHT))
-im = Image.open('/home/pi/layout.png')
+im = Image.open('./layout.png')
 draw = ImageDraw.Draw(im)
 
 now = datetime.now()
