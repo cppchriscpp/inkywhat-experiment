@@ -37,7 +37,8 @@ draw.text((10, 283), myIp, inkR.BLACK, font)
 # Right column
 # Origin (208, 12) for right column
 feedTitle = rssData['feed']['title']
-left = (panelWidth - round(font.getsize(feedTitle) / 2))
+titleW, titleH = font.getsize(feedTitle)
+left = (panelWidth - round(titleW / 2))
 if (left < 0):
     left = 0
 draw.text((208 + left, 12), feedTitle, inkR.BLACK, font)
