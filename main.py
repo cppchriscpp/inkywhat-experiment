@@ -43,7 +43,7 @@ for post in rssData.entries:
     splutTitle = post['title']
     titleL1 = ''
     titleL2 = ''
-    while splutTitle.len > 0:
+    while len(splutTitle) > 0:
         theWord = splutTitle.pop()
         before = titleL1
         titleL1 = TitleL1.append(' '.join(theWord))
@@ -52,7 +52,7 @@ for post in rssData.entries:
             titleL1 = before
             break
     
-    while splutTitle.len > 0:
+    while len(splutTitle) > 0:
         theWord = splutTitle.pop()
         before = titleL2
         titleL2 = TitleL2.append(' '.join(theWord))
