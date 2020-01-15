@@ -16,7 +16,7 @@ draw.text((262, 283), prettyTime, inkR.BLACK, font)
 
 myIp = 'Unknown'
 try:
-    hostname = socket.gethostname()
+    hostname = socket.getfqdn()
     myIp = socket.gethostbyname(hostname)
 except:
     myIp = 'Unknown'
