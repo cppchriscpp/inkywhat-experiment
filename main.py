@@ -9,6 +9,7 @@ feedUrl = 'http://rss.slashdot.org/Slashdot/slashdotMain'
 
 rssData = feedparser.parse(feedUrl)
 panelWidth = 180
+maxArticles = 6
 
 inkR = Ink('red')
 
@@ -89,7 +90,7 @@ for post in rssData.entries:
     i = i + 18
 
     totalArticles = totalArticles + 1
-    if totalArticles > 6:
+    if totalArticles >= maxArticles:
         break
 
 
