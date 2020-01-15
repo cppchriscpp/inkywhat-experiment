@@ -16,8 +16,10 @@ draw.text((262, 283), prettyTime, inkR.BLACK, font)
 
 myIp = 'Unknown'
 try:
-    hostname = socket.getfqdn()
-    myIp = socket.gethostbyname(hostname)
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("192.168.1.1", 80))
+    myIp = s.getsockname()[0]
+    s.close()
 except:
     myIp = 'Unknown'
 
