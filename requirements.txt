@@ -1,0 +1,6 @@
+# Fair warning, I haven't tested this extensively... if you find missing requirements please send a PR!
+darksky==0.3
+geopy==1.20.0
+inky==0.0.5
+Pillow==6.2.1
+feedparser==5.2.1
