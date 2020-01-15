@@ -44,22 +44,22 @@ for post in rssData.entries:
     titleL1 = ''
     titleL2 = ''
     while len(splutTitle) > 0:
-        theWord = splutTitle.pop()
+        theWord = splutTitle.pop(0)
         before = titleL1
         titleL1 = titleL1 + ' ' + theWord
         w, h = titleFont.getsize(titleL1)
         if w > panelWidth:
-            splutTitle.append(theWord)
+            splutTitle.append(0, theWord)
             titleL1 = before
             break
     
     while len(splutTitle) > 0:
-        theWord = splutTitle.pop()
+        theWord = splutTitle.pop(0)
         before = titleL2
         titleL2 = titleL2 + ' ' + theWord
         w, h = titleFont.getsize(titleL2)
         if w > panelWidth:
-            splutTitle.append(theWord)
+            splutTitle.insert(0, theWord)
             titleL2 = before
             break
 
@@ -68,7 +68,7 @@ for post in rssData.entries:
     draw.text((208, i), titleL1, inkR.BLACK, titleFont)
     i = i + 10
     draw.text((208, i), titleL2, inkR.BLACK, titleFont)
-    i = i + 12
+    i = i + 18
 
     totalArticles = totalArticles + 1
     if totalArticles > 6:
