@@ -37,7 +37,10 @@ draw.text((10, 283), myIp, inkR.BLACK, font)
 # Right column
 # Origin (208, 12) for right column
 feedTitle = rssData['feed']['title']
-draw.text((208, 12), feedTitle, inkR.BLACK, font)
+left = (panelWidth - round(font.getsize(feedTitle) / 2))
+if (left < 0):
+    left = 0
+draw.text((208 + left, 12), feedTitle, inkR.BLACK, font)
 i = 32
 totalArticles = 0
 for post in rssData.entries:
