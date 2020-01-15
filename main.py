@@ -47,7 +47,8 @@ for post in rssData.entries:
         theWord = splutTitle.pop()
         before = titleL1
         titleL1 = titleL1.join(' '.join(theWord))
-        if titleFont.getSize(titleL1).length > panelWidth:
+        w, h = titleFont.getsize(titleL1)
+        if w > panelWidth:
             splutTitle.push(theWord)
             titleL1 = before
             break
@@ -56,7 +57,8 @@ for post in rssData.entries:
         theWord = splutTitle.pop()
         before = titleL2
         titleL2 = titleL2.join(' '.join(theWord))
-        if titleFont.getSize(titleL1).length > panelWidth:
+        w, h = titleFont.getsize(titleL2)
+        if w > panelWidth:
             splutTitle.push(theWord)
             titleL2 = before
             break
