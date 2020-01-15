@@ -44,6 +44,9 @@ for post in rssData.entries:
     splutTitle.reverse()
     titleL1 = ''
     titleL2 = ''
+    titleL3 = ''
+
+    # TODO: Probably should make this a function or something..
     while len(splutTitle) > 0:
         theWord = splutTitle.pop()
         before = titleL1
@@ -64,11 +67,25 @@ for post in rssData.entries:
             titleL2 = before
             break
 
+    while len(splutTitle) > 0:
+        theWord = splutTitle.pop()
+        before = titleL3
+        titleL3 = titleL3 + ' ' + theWord
+        w, h = titleFont.getsize(titleL3)
+        if w > panelWidth:
+            splutTitle.append(theWord)
+            titleL3 = before
+            break
+
+
+
 
     # TODO: If time+1h > now THEN red ELSE black
     draw.text((208, i), titleL1, inkR.BLACK, titleFont)
     i = i + 10
     draw.text((208, i), titleL2, inkR.BLACK, titleFont)
+    i = i + 10
+    draw.text((208, i), titleL3, inkR.BLACK, titleFont)
     i = i + 18
 
     totalArticles = totalArticles + 1
