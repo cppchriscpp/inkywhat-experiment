@@ -38,7 +38,7 @@ draw.text((208, 12), feedTitle, inkR.BLACK, font)
 i = 32
 for post in rssData.entries:
     # TODO: If time+1h > now THEN red ELSE black
-    draw.text((208, i), rssData.entries[post]['title'], inkR.BLACK, font)
+    draw.text((208, i), post['title'], inkR.BLACK, font)
     i = i + 12
 
 
