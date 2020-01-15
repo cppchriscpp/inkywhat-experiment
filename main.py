@@ -8,6 +8,7 @@ import feedparser
 feedUrl = 'http://rss.slashdot.org/Slashdot/slashdotMain'
 
 rssData = feedparser.parse(feedUrl)
+panelWidth = 180
 
 inkR = Ink('red')
 
@@ -36,10 +37,15 @@ draw.text((10, 283), myIp, inkR.BLACK, font)
 feedTitle = rssData['feed']['title']
 draw.text((208, 12), feedTitle, inkR.BLACK, font)
 i = 32
+totalArticles = 0
 for post in rssData.entries:
     # TODO: If time+1h > now THEN red ELSE black
     draw.text((208, i), post['title'], inkR.BLACK, font)
     i = i + 12
+
+    totalArticles = totalArticles + 1
+    if totalArticles > 6:
+        break
 
 
 
