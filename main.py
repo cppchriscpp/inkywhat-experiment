@@ -118,8 +118,14 @@ left = round((panelWidth - titleW) / 2)
 
 draw.text((10 + left, 12), wtitle, inkR.BLACK, font)
 
-draw.text((10, 32), "Currently: " + forecast.currently.summary + ' (' + str(forecast.currently.temperature) + '°f)', inkR.BLACK, font)
+draw.text((10, 32), "Currently: " + forecast.currently.summary, inkR.BLACK, font)
+draw.text((10, 44), 'Temperature: ' +  str(forecast.currently.temperature) + '°f', inkR.BLACK, font)
 
+try:
+    icon = Image.open('DarkSky-icons/PNG/' + forecast.currently.icon + '.png')
+    im.paste(icon, (30, 64, 94, 128))
+except:
+    print('Unable to load icon... leaving blank')
 
 inkR.set_image(im)
 inkR.show()
