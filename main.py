@@ -124,6 +124,7 @@ if len(forecast.alerts) > 0:
     draw.text((12, 56), 'ALERT: ' + forecast.alerts[0], inkR.RED, font)
 
 try:
+    # TODO: Icons look kind of bad/not visible... find better ones or figure out a better way to convert.
     icon = Image.open('DarkSky-icons/PNG/' + forecast.currently.icon + '.png').resize((64, 64)).convert('1')
     im.paste(icon, (48, 76))
 except Exception as e:
