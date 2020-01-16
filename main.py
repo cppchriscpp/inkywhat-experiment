@@ -122,8 +122,8 @@ draw.text((10, 32), "Currently: " + forecast.currently.summary, inkR.BLACK, font
 draw.text((10, 44), 'Temperature: ' +  str(forecast.currently.temperature) + '°f', inkR.BLACK, font)
 
 try:
-    icon = Image.open('DarkSky-icons/PNG/' + forecast.currently.icon + '.png')
-    im.paste(icon, (30, 64, 94, 128))
+    icon = Image.open('DarkSky-icons/PNG/' + forecast.currently.icon + '.png').resize((64, 64))
+    im.paste(icon, (30, 64))
 except Exception as e:
     print('Unable to load icon... leaving blank. ' + str(e))
 
