@@ -12,3 +12,8 @@ Want this to update every 30 minutes automatically? Dump this in `crontab -e`...
 ```cron
 */30 * * * * cd /home/pi/inkywhat-experiment && /usr/bin/python main.py
 ```
+
+## Config
+
+Configuration needs to be set up in a file called `config.py` ... you need to copy `config.example.py` to a separate
+file and fill it out. It should be pretty straightforward.
