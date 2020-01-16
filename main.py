@@ -118,6 +118,8 @@ left = round((panelWidth - titleW) / 2)
 
 draw.text((10 + left, 12), wtitle, inkR.BLACK, font)
 
+draw.text((10, 32), "Currently: " + forecast.currently.summary + ' (' + forecast.currently.temperature + '°f)')
+
 
 inkR.set_image(im)
 inkR.show()
