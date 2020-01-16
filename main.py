@@ -3,9 +3,17 @@ from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime
 import socket
 import feedparser
+import config
 
-# TODO: Make a config file, or use environment config, or something..
-feedUrl = 'http://rss.slashdot.org/Slashdot/slashdotMain'
+from geopy.geocoders import Nominatim
+from darksky.api import DarkSky
+from darksky.types import languages, units, weather
+
+geolocator = Nominatim(user_agent='inkyWhat screen display toy')
+
+
+
+feedUrl = config.rssFeedUrl
 
 rssData = feedparser.parse(feedUrl)
 panelWidth = 180
@@ -97,6 +105,18 @@ for post in rssData.entries:
     if totalArticles >= maxArticles:
         break
 
+
+# Left column, weather
+darksky = DarkSky(config.darkskyApiKey)
+location = geolocator.geocode(config.weatherLocation)
+
+forecast = darksky.get_forecast(location.latitude, location.longitude)
+
+wtitle = 'Weather'
+titleW, titleH = font.getsize(wtitle)
+left = round((panelWidth - titleW) / 2)
+
+draw.text((10 + left, 12), wtitle, inkR.BLACK, font)
 
 
 inkR.set_image(im)
