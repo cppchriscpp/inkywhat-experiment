@@ -125,7 +125,7 @@ try:
     icon = Image.open('DarkSky-icons/PNG/' + forecast.currently.icon + '.png')
     im.paste(icon, (30, 64, 94, 128))
 except Exception as e:
-    print('Unable to load icon... leaving blank', exc_info=e)
+    print('Unable to load icon... leaving blank. ' + str(e))
 
 # TODO: If alert, print in red
 
