@@ -116,16 +116,16 @@ wtitle = 'Weather'
 titleW, titleH = font.getsize(wtitle)
 left = round((panelWidth - titleW) / 2)
 
-draw.text((10 + left, 12), wtitle, inkR.BLACK, font)
+draw.text((12 + left, 12), wtitle, inkR.BLACK, font)
 
-draw.text((10, 32), "Currently: " + forecast.currently.summary, inkR.BLACK, font)
-draw.text((10, 44), 'Temperature: ' +  str(forecast.currently.temperature) + '°f', inkR.BLACK, font)
+draw.text((12, 32), "Currently: " + forecast.currently.summary, inkR.BLACK, font)
+draw.text((12, 44), 'Temperature: ' +  str(forecast.currently.temperature) + '°f', inkR.BLACK, font)
 if len(forecast.alerts) > 0:
-    draw.text((10, 56), 'ALERT: ' + forecast.alerts[0], inkR.RED, font)
+    draw.text((12, 56), 'ALERT: ' + forecast.alerts[0], inkR.RED, font)
 
 try:
-    icon = Image.open('DarkSky-icons/PNG/' + forecast.currently.icon + '.png').resize((64, 64))
-    im.paste(icon, (30, 64))
+    icon = Image.open('DarkSky-icons/PNG/' + forecast.currently.icon + '.png').resize((64, 64)).convert('1')
+    im.paste(icon, (48, 76))
 except Exception as e:
     print('Unable to load icon... leaving blank. ' + str(e))
 
