@@ -121,7 +121,7 @@ draw.text((10 + left, 12), wtitle, inkR.BLACK, font)
 draw.text((10, 32), "Currently: " + forecast.currently.summary, inkR.BLACK, font)
 draw.text((10, 44), 'Temperature: ' +  str(forecast.currently.temperature) + '°f', inkR.BLACK, font)
 if len(forecast.alerts) > 0:
-    draw.text((10, 56, 'ALERT: ' + forecast.alerts[0], inkR.RED, font)
+    draw.text((10, 56), 'ALERT: ' + forecast.alerts[0], inkR.RED, font)
 
 try:
     icon = Image.open('DarkSky-icons/PNG/' + forecast.currently.icon + '.png').resize((64, 64))
