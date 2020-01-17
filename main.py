@@ -121,7 +121,7 @@ draw.text((12 + left, 12), wtitle, inkR.BLACK, font)
 draw.text((12, 32), "Currently: " + forecast.currently.summary, inkR.BLACK, font)
 draw.text((12, 44), 'Temperature: ' +  str(forecast.currently.temperature) + '°f', inkR.BLACK, font)
 if len(forecast.alerts) > 0:
-    draw.text((12, 56), 'ALERT: ' + forecast.alerts[0].title, inkR.RED, font)
+    draw.text((12, 56), forecast.alerts[0].title, inkR.RED, font)
 
 try:
     # TODO: Icons look kind of bad/not visible... find better ones or figure out a better way to convert.
