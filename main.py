@@ -115,7 +115,7 @@ iconDict = {
     'fog': 'Tempestacons-master/converted/fog.png', 
     'cloudy': 'Tempestacons-master/converted/cloudy.png', 
     'partly-cloudy-day': 'Tempestacons-master/converted/partly-cloudy.png', 
-    'partly-cloudy-night': 'Tempestacons-master/converted/partly-cloudy.png'
+    'partly-cloudy-night': 'Tempestacons-master/converted/partly-cloudy.png',
     'hail': 'Tempestacons-master/converted/hail.png', 
     'thunderstorm': 'Tempestacons-master/converted/thunderstorms.png',
     'tornado': 'Tempestacons-master/converted/tornado.png'
