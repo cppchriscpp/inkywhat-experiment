@@ -105,6 +105,22 @@ for post in rssData.entries:
     if totalArticles >= maxArticles:
         break
 
+iconDict = {
+    'clear-day': 'Tempestacons-master/converted/day.png', 
+    'clear-night': 'Tempestacons-master/converted/day.png', 
+    'rain': 'Tempestacons-master/converted/rain.png', 
+    'snow': 'Tempestacons-master/converted/snow.png', 
+    'sleet': 'Tempestacons-master/converted/mixed-rain-snow.png', 
+    'wind': 'Tempestacons-master/converted/wind.png', 
+    'fog': 'Tempestacons-master/converted/fog.png', 
+    'cloudy': 'Tempestacons-master/converted/cloudy.png', 
+    'partly-cloudy-day': 'Tempestacons-master/converted/partly-cloudy.png', 
+    'partly-cloudy-night': 'Tempestacons-master/converted/partly-cloudy.png'
+    'hail': 'Tempestacons-master/converted/hail.png', 
+    'thunderstorm': 'Tempestacons-master/converted/thunderstorms.png',
+    'tornado': 'Tempestacons-master/converted/tornado.png'
+}
+
 
 # Left column, weather
 darksky = DarkSky(config.darkskyApiKey)
@@ -125,7 +141,7 @@ if len(forecast.alerts) > 0:
 
 try:
     # TODO: Icons look kind of bad/not visible... find better ones or figure out a better way to convert.
-    icon = Image.open('DarkSky-icons/PNG/' + forecast.currently.icon + '.png').resize((64, 64)).convert('1')
+    icon = Image.open(iconDict[forecast.currently.icon])
     im.paste(icon, (48, 76))
 except Exception as e:
     print('Unable to load icon... leaving blank. ' + str(e))
