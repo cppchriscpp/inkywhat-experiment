@@ -142,7 +142,7 @@ if len(forecast.alerts) > 0:
 try:
     # TODO: Icons look kind of bad/not visible... find better ones or figure out a better way to convert.
     icon = Image.open(iconDict[forecast.currently.icon])
-    im.paste(icon, (48, 76))
+    im.paste(icon, (164, 8))
 except Exception as e:
     print('Unable to load icon... leaving blank. ' + str(e))
 
