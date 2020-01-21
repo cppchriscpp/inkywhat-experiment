@@ -21,7 +21,6 @@ maxArticles = 6
 
 inkR = Ink('red')
 
-# im = Image.new('P', (inkR.WIDTH, inkR.HEIGHT))
 im = Image.open('./layout.png')
 draw = ImageDraw.Draw(im)
 
@@ -140,7 +139,6 @@ if len(forecast.alerts) > 0:
     draw.text((12, 56), forecast.alerts[0].title, inkR.RED, font)
 
 try:
-    # TODO: Icons look kind of bad/not visible... find better ones or figure out a better way to convert.
     icon = Image.open(iconDict[forecast.currently.icon])
     im.paste(icon, (164, 8))
 except Exception as e:
