@@ -1,6 +1,7 @@
 from inky import InkyWHAT as Ink
 from PIL import Image, ImageDraw, ImageFont
-from datetime import datetime
+from datetime import datetime, timedelta
+from dateutil import parser
 import socket
 import feedparser
 import config
@@ -58,6 +59,11 @@ for post in rssData.entries:
     titleL2 = ''
     titleL3 = ''
 
+    thisDate = parser.parse(post['date'])
+    thisColor = inkR.BLACK
+    if (datetime.now(thisDate.tzinfo)-timedelta(hours=1) <= thisDate):
+        thisColor = inkR.RED
+
     # TODO: Probably should make this a function or something..
     while len(splutTitle) > 0:
         theWord = splutTitle.pop()
@@ -92,12 +98,11 @@ for post in rssData.entries:
 
 
 
-    # TODO: If time+1h > now THEN red ELSE black
-    draw.text((208, i), titleL1, inkR.BLACK, titleFont)
+    draw.text((208, i), titleL1, thisColor, titleFont)
     i = i + 10
-    draw.text((208, i), titleL2, inkR.BLACK, titleFont)
+    draw.text((208, i), titleL2, thisColor, titleFont)
     i = i + 10
-    draw.text((208, i), titleL3, inkR.BLACK, titleFont)
+    draw.text((208, i), titleL3, thisColor, titleFont)
     i = i + 18
 
     totalArticles = totalArticles + 1
