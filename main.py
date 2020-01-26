@@ -186,11 +186,11 @@ while len(splutForecast) > 0:
         forecastL3 = before
         break
 
-draw.text((12, 32), forecastL1, inkR.BLACK, font)
-draw.text((12, 44), forecastL2, inkR.BLACK, font)
-draw.text((12, 56), forecastL3, inkR.BLACK, font)
-draw.text((12, 68), 'Temperature: ' +  str(forecast.currently.temperature) + '°f', inkR.BLACK, font)
-draw.text((12, 80), 'High: ' + str(forecast.daily.data[0].temperature_high) + '°f  Low: ' + str(forecast.daily.data[0].temperature_low) + '°f', inkR.BLACK, font)
+draw.text((12, 38), forecastL1, inkR.BLACK, font)
+draw.text((12, 50), forecastL2, inkR.BLACK, font)
+draw.text((12, 62), forecastL3, inkR.BLACK, font)
+draw.text((12, 74), 'Temperature: ' +  str(forecast.currently.temperature) + '°f', inkR.BLACK, font)
+draw.text((12, 86), 'High: ' + str(forecast.daily.data[0].temperature_high) + '°f  Low: ' + str(forecast.daily.data[0].temperature_low) + '°f', inkR.BLACK, font)
 
 inkR.set_image(im)
 inkR.show()
