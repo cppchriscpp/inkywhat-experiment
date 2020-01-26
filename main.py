@@ -138,11 +138,11 @@ left = round((panelWidth - titleW) / 2)
 
 draw.text((12 + left, 12), wtitle, inkR.BLACK, font)
 
-forecast = "Currently: " + forecast.daily.summary
+forecastTxt = "Currently: " + forecast.daily.summary
 forecastL1 = ''
 forecastL2 = ''
 forecastL3 = ''
-splutForecast = forecast.split(' ')
+splutForecast = forecastTxt.split(' ')
 splutForecast.reverse()
 
 # TODO: Probably should make this a function or something.. (ESPECIALLY now that I'm doing this two places...)
