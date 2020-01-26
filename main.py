@@ -140,7 +140,7 @@ draw.text((12 + left, 12), wtitle, inkR.BLACK, font)
 
 draw.text((12, 32), "Currently: " + forecast.daily.summary, inkR.BLACK, font)
 draw.text((12, 44), 'Temperature: ' +  str(forecast.currently.temperature) + '°f', inkR.BLACK, font)
-draw.text((12, 56), 'High: ' + str(forecast.daily.temperature_high) + '°f  Low: ' + str(forecast.daily.temperature_low) + '°f', inkR.BLACK, font)
+draw.text((12, 56), 'High: ' + str(forecast.daily.temperatureHigh) + '°f  Low: ' + str(forecast.daily.temperatureLow) + '°f', inkR.BLACK, font)
 if len(forecast.alerts) > 0:
     draw.text((12, 68), forecast.alerts[0].title, inkR.RED, font)
 
