@@ -138,11 +138,51 @@ left = round((panelWidth - titleW) / 2)
 
 draw.text((12 + left, 12), wtitle, inkR.BLACK, font)
 
-draw.text((12, 32), "Currently: " + forecast.daily.summary, inkR.BLACK, font)
-draw.text((12, 44), 'Temperature: ' +  str(forecast.currently.temperature) + '°f', inkR.BLACK, font)
-draw.text((12, 56), 'High: ' + str(forecast.daily.data[0].temperature_high) + '°f  Low: ' + str(forecast.daily.data[0].temperature_low) + '°f', inkR.BLACK, font)
+forecast = "Currently: " + forecast.daily.summary
+forecastL1 = ''
+forecastL2 = ''
+forecastL3 = ''
+splutForecast = forecast.split(' ')
+splutForecast.reverse()
+
+# TODO: Probably should make this a function or something.. (ESPECIALLY now that I'm doing this two places...)
+while len(splutForecast) > 0:
+    theWord = splutForecast.pop()
+    before = forecastL1
+    forecastL1 = forecastL1 + ' ' + theWord
+    w, h = titleFont.getsize(forecastL1)
+    if w > panelWidth:
+        splutForecast.append(theWord)
+        forecastL1 = before
+        break
+
+while len(splutForecast) > 0:
+    theWord = splutForecast.pop()
+    before = forecastL2
+    forecastL2 = forecastL2 + ' ' + theWord
+    w, h = titleFont.getsize(forecastL2)
+    if w > panelWidth:
+        splutForecast.append(theWord)
+        forecastL2 = before
+        break
+
+while len(splutForecast) > 0:
+    theWord = splutForecast.pop()
+    before = forecastL3
+    forecastL1 = forecastL3 + ' ' + theWord
+    w, h = titleFont.getsize(forecastL3)
+    if w > panelWidth:
+        splutForecast.append(theWord)
+        forecastL3 = before
+        break
+
+draw.text((12, 32), forecastL1, inkR.BLACK, font)
+draw.text((12, 44), forecastL2, inkR.BLACK, font)
+draw.text((12, 56), forecastL3, inkR.BLACK, font)
+draw.text((12, 68), 'Temperature: ' +  str(forecast.currently.temperature) + '°f', inkR.BLACK, font)
+draw.text((12, 80), 'High: ' + str(forecast.daily.data[0].temperature_high) + '°f  Low: ' + str(forecast.daily.data[0].temperature_low) + '°f', inkR.BLACK, font)
 if len(forecast.alerts) > 0:
-    draw.text((12, 68), forecast.alerts[0].title, inkR.RED, font)
+    draw.text((12, 92), forecast.alerts[0].title, inkR.RED, font)
 
 try:
     icon = Image.open(iconDict[forecast.currently.icon])
