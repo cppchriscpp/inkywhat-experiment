@@ -138,7 +138,7 @@ left = round((panelWidth - titleW) / 2)
 
 draw.text((12 + left, 12), wtitle, inkR.BLACK, font)
 
-forecastTxt = "Currently: " + forecast.daily.summary
+forecastTxt = forecast.daily.summary
 forecastL1 = ''
 forecastL2 = ''
 forecastL3 = ''
