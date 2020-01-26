@@ -169,7 +169,7 @@ while len(splutForecast) > 0:
 while len(splutForecast) > 0:
     theWord = splutForecast.pop()
     before = forecastL3
-    forecastL1 = forecastL3 + ' ' + theWord
+    forecastL3 = forecastL3 + ' ' + theWord
     w, h = titleFont.getsize(forecastL3)
     if w > panelWidth:
         splutForecast.append(theWord)
