@@ -63,9 +63,9 @@ draw.text((12 + left, 120), feed2Title, inkR.BLACK, font)
 for post in rssData.entries:
     splutTitle = post['title'].split(' ')
     splutTitle.reverse()
-    titleL1 = ''
-    titleL2 = ''
-    titleL3 = ''
+    titlebL1 = ''
+    titlebL2 = ''
+    titlebL3 = ''
 
     thisDate = parser.parse(post['date'])
     thisColor = inkR.BLACK
@@ -75,42 +75,42 @@ for post in rssData.entries:
     # TODO: Probably should make this a function or something..
     while len(splutTitle) > 0:
         theWord = splutTitle.pop()
-        before = titleL1
-        titleL1 = titleL1 + ' ' + theWord
-        w, h = titleFont.getsize(titleL1)
+        before = titlebL1
+        titlebL1 = titlebL1 + ' ' + theWord
+        w, h = titleFont.getsize(titlebL1)
         if w > panelWidth:
             splutTitle.append(theWord)
-            titleL1 = before
+            titlebL1 = before
             break
     
     while len(splutTitle) > 0:
         theWord = splutTitle.pop()
-        before = titleL2
-        titleL2 = titleL2 + ' ' + theWord
-        w, h = titleFont.getsize(titleL2)
+        before = titlebL2
+        titlebL2 = titlebL2 + ' ' + theWord
+        w, h = titleFont.getsize(titlebL2)
         if w > panelWidth:
             splutTitle.append(theWord)
-            titleL2 = before
+            titlebL2 = before
             break
 
     while len(splutTitle) > 0:
         theWord = splutTitle.pop()
-        before = titleL3
-        titleL3 = titleL3 + ' ' + theWord
-        w, h = titleFont.getsize(titleL3)
+        before = titlebL3
+        titlebL3 = titlebL3 + ' ' + theWord
+        w, h = titleFont.getsize(titlebL3)
         if w > panelWidth:
             splutTitle.append(theWord)
-            titleL3 = before
+            titlebL3 = before
             break
 
 
 
 
-    draw.text((208, i), titleL1, thisColor, titleFont)
+    draw.text((208, i), titlebL1, thisColor, titleFont)
     i = i + 10
-    draw.text((208, i), titleL2, thisColor, titleFont)
+    draw.text((208, i), titlebL2, thisColor, titleFont)
     i = i + 10
-    draw.text((208, i), titleL3, thisColor, titleFont)
+    draw.text((208, i), titlebL3, thisColor, titleFont)
     i = i + 18
 
     totalArticles = totalArticles + 1
