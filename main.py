@@ -61,8 +61,6 @@ if (left < 0):
     left = 0
 draw.text((12 + left, 120), feed2Title, inkR.BLACK, font)
 for post in rssData.entries:
-    print('got here ' + str(i))
-    print(post['title'])
     splutTitle = post['title'].split(' ')
     splutTitle.reverse()
     titlebL1 = ''
@@ -122,6 +120,9 @@ for post in rssData.entries:
 j = 134
 totalArticles = 0
 for post in rssData2.entries:
+    print('got here ' + str(i))
+    print(post['title'])
+
     splutTitle = post['title'].split(' ')
     splutTitle.reverse()
     titleL1 = ''
