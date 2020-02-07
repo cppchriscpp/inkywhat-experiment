@@ -15,8 +15,10 @@ geolocator = Nominatim(user_agent='inkyWhat screen display toy')
 
 
 feedUrl = config.rssFeedUrl
+feed2Url = config.rssFeed2Url
 
 rssData = feedparser.parse(feedUrl)
+rssData2 = feedparser.parse(feed2Url)
 panelWidth = 180
 maxArticles = 6
 
@@ -45,6 +47,7 @@ draw.text((10, 283), myIp, inkR.BLACK, font)
 # Right column
 # Origin (208, 12) for right column
 feedTitle = rssData['feed']['title']
+feed2Title = rssData2['feed']['title']
 titleW, titleH = font.getsize(feedTitle)
 left = round((panelWidth - titleW) / 2)
 if (left < 0):
@@ -52,6 +55,11 @@ if (left < 0):
 draw.text((208 + left, 12), feedTitle, inkR.BLACK, font)
 i = 32
 totalArticles = 0
+titleW, titleH = font.getsize(feed2Title)
+left = round((panelWidth - titleW) / 2)
+if (left < 0):
+    left = 0
+draw.text((12 + left, 120), feed2Title, inkR.BLACK, font)
 for post in rssData.entries:
     splutTitle = post['title'].split(' ')
     splutTitle.reverse()
