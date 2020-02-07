@@ -117,7 +117,7 @@ for post in rssData.entries:
     if totalArticles >= maxArticles:
         break
 
-i = 134
+j = 134
 for post in rssData2.entries:
     splutTitle = post['title'].split(' ')
     splutTitle.reverse()
@@ -125,7 +125,7 @@ for post in rssData2.entries:
     titleL2 = ''
     titleL3 = ''
 
-    thisDate = parser.parse(post['pubDate'])
+    thisDate = parser.parse(post['date'])
     thisColor = inkR.BLACK
     if (datetime.now(thisDate.tzinfo)-timedelta(hours=12) <= thisDate):
         thisColor = inkR.RED
@@ -164,12 +164,12 @@ for post in rssData2.entries:
 
 
 
-    draw.text((12, i), titleL1, thisColor, titleFont)
-    i = i + 10
-    draw.text((12, i), titleL2, thisColor, titleFont)
-    i = i + 10
-    draw.text((12, i), titleL3, thisColor, titleFont)
-    i = i + 18
+    draw.text((12, j), titleL1, thisColor, titleFont)
+    j = j + 10
+    draw.text((12, j), titleL2, thisColor, titleFont)
+    j = j + 10
+    draw.text((12, j), titleL3, thisColor, titleFont)
+    j = j + 18
 
     totalArticles = totalArticles + 1
     if totalArticles >= maxArticles:
