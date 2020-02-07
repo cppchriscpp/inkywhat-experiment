@@ -59,7 +59,7 @@ titleW, titleH = font.getsize(feed2Title)
 left = round((panelWidth - titleW) / 2)
 if (left < 0):
     left = 0
-draw.text((12 + left, 120), feed2Title, inkR.BLACK, font)
+draw.text((12 + left, 140), feed2Title, inkR.BLACK, font)
 for post in rssData.entries:
     splutTitle = post['title'].split(' ')
     splutTitle.reverse()
@@ -117,7 +117,7 @@ for post in rssData.entries:
     if totalArticles >= maxArticles:
         break
 
-j = 142
+j = 162
 totalArticles = 0
 maxArticles2 = 4
 for post in rssData2.entries:
