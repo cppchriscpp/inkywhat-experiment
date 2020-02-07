@@ -170,7 +170,8 @@ for post in rssData2.entries:
     draw.text((12, j), titleL1, thisColor, titleFont)
     j = j + 10
     draw.text((12, j), titleL2, thisColor, titleFont)
-    j = j + 10
+    #j = j + 10
+    j = j + 18
     #draw.text((12, j), titleL3, thisColor, titleFont)
     #j = j + 18
 
