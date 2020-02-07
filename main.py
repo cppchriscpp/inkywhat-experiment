@@ -118,6 +118,7 @@ for post in rssData.entries:
         break
 
 j = 134
+totalArticles = 0
 for post in rssData2.entries:
     splutTitle = post['title'].split(' ')
     splutTitle.reverse()
