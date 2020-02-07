@@ -125,7 +125,7 @@ for post in rssData2.entries:
     titleL2 = ''
     titleL3 = ''
 
-    thisDate = parser.parse(post['date'])
+    thisDate = parser.parse(post['pubDate'])
     thisColor = inkR.BLACK
     if (datetime.now(thisDate.tzinfo)-timedelta(hours=12) <= thisDate):
         thisColor = inkR.RED
