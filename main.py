@@ -47,7 +47,7 @@ draw.text((10, 283), myIp, inkR.BLACK, font)
 # Right column
 # Origin (208, 12) for right column
 feedTitle = rssData['feed']['title']
-feed2Title = config.rssFeed2Name
+feed2Title = rssData2['feed']['title']
 titleW, titleH = font.getsize(feedTitle)
 left = round((panelWidth - titleW) / 2)
 if (left < 0):
@@ -121,6 +121,7 @@ j = 134
 totalArticles = 0
 for post in rssData2.entries:
     print('got here ' + str(i))
+    print(post.keys())
     print(post['title'])
 
     splutTitle = post['title'].split(' ')
