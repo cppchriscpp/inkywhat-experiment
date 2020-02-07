@@ -117,6 +117,64 @@ for post in rssData.entries:
     if totalArticles >= maxArticles:
         break
 
+i = 134
+for post in rssData2.entries:
+    splutTitle = post['title'].split(' ')
+    splutTitle.reverse()
+    titleL1 = ''
+    titleL2 = ''
+    titleL3 = ''
+
+    thisDate = parser.parse(post['date'])
+    thisColor = inkR.BLACK
+    if (datetime.now(thisDate.tzinfo)-timedelta(hours=12) <= thisDate):
+        thisColor = inkR.RED
+
+    # TODO: Probably should make this a function or something..
+    while len(splutTitle) > 0:
+        theWord = splutTitle.pop()
+        before = titleL1
+        titleL1 = titleL1 + ' ' + theWord
+        w, h = titleFont.getsize(titleL1)
+        if w > panelWidth:
+            splutTitle.append(theWord)
+            titleL1 = before
+            break
+    
+    while len(splutTitle) > 0:
+        theWord = splutTitle.pop()
+        before = titleL2
+        titleL2 = titleL2 + ' ' + theWord
+        w, h = titleFont.getsize(titleL2)
+        if w > panelWidth:
+            splutTitle.append(theWord)
+            titleL2 = before
+            break
+
+    while len(splutTitle) > 0:
+        theWord = splutTitle.pop()
+        before = titleL3
+        titleL3 = titleL3 + ' ' + theWord
+        w, h = titleFont.getsize(titleL3)
+        if w > panelWidth:
+            splutTitle.append(theWord)
+            titleL3 = before
+            break
+
+
+
+
+    draw.text((12, i), titleL1, thisColor, titleFont)
+    i = i + 10
+    draw.text((12, i), titleL2, thisColor, titleFont)
+    i = i + 10
+    draw.text((12, i), titleL3, thisColor, titleFont)
+    i = i + 18
+
+    totalArticles = totalArticles + 1
+    if totalArticles >= maxArticles:
+        break
+
 iconDict = {
     'clear-day': 'Tempestacons-master/converted/day.png', 
     'clear-night': 'Tempestacons-master/converted/day.png', 
