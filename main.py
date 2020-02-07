@@ -117,12 +117,10 @@ for post in rssData.entries:
     if totalArticles >= maxArticles:
         break
 
-j = 134
+j = 142
 totalArticles = 0
+maxArticles2 = 4
 for post in rssData2.entries:
-    print('got here ' + str(i))
-    print(post.keys())
-    print(post['title'])
 
     splutTitle = post['title'].split(' ')
     splutTitle.reverse()
@@ -173,11 +171,11 @@ for post in rssData2.entries:
     j = j + 10
     draw.text((12, j), titleL2, thisColor, titleFont)
     j = j + 10
-    draw.text((12, j), titleL3, thisColor, titleFont)
-    j = j + 18
+    #draw.text((12, j), titleL3, thisColor, titleFont)
+    #j = j + 18
 
     totalArticles = totalArticles + 1
-    if totalArticles >= maxArticles:
+    if totalArticles >= maxArticles2:
         break
 
 iconDict = {
