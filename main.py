@@ -60,6 +60,7 @@ left = round((panelWidth - titleW) / 2)
 if (left < 0):
     left = 0
 draw.text((12 + left, 120), feed2Title, inkR.BLACK, font)
+print("beep " + feed2Title)
 for post in rssData.entries:
     splutTitle = post['title'].split(' ')
     splutTitle.reverse()
@@ -119,7 +120,7 @@ for post in rssData.entries:
 
 j = 134
 totalArticles = 0
-for post in rssData.entries:
+for post in rssData2.entries:
     splutTitle = post['title'].split(' ')
     splutTitle.reverse()
     titleL1 = ''
